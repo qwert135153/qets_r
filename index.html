@@ -1,10 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>我的主页</title>
-  </head>
-  <body>
-    <h1>欢迎来到我的主页！！！</h1>
-  </body>
+    <style>
+        * {
+            padding: 0;
+            margin: 2px;
+        }
+        .btn{
+			width: 70px;
+			position: relative;
+			height: 30px;
+			background-color: orange;
+			border-radius: 7px;
+			border: none;
+			box-shadow: 0px 5px orangered;
+			cursor: pointer;
+			color: white;
+			text-shadow: 1px 1px 1px gray;
+		}
+		.btn:active{
+			bottom: -3px;
+			box-shadow: 0px 2px orangered;
+		}
+		.box{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            line-height: 100px;
+            font-size: 1em;
+            color: black;
+            transform-style: preserve-3d;
+        }
+        .box:nth-child(1){
+            background-color: red;
+            transform: rotate(0deg, 0deg, 0deg);
+        }
+        .box:nth-child(2){
+            transform-origin: top;
+            background-color: orange;
+            transform: rotateX(-90deg);
+        }
+        .box:nth-child(3){
+            background-color: yellow;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        .box:nth-child(4){
+            background-color: green;
+            transform-origin: left;
+            transform: translate(100%) rotateY(90deg);
+        }
+        .box:nth-child(5){
+            background-color: skyblue;
+            transform-origin: right;
+            transform: translate(-100%) rotateY(-90deg);
+        }
+        .box:nth-child(6){
+            background-color: purple;
+            transform: translateZ(-100px);
+        }
+        h3{
+            transition: 0.5s all;
+        }
+        h3:hover{
+            color: skyblue;
+        }
+        h1{
+            transition: 0.5s all;
+            color: skyblue;
+        }
+        h1:hover{
+            color: blue;
+        }
+        .nw{
+            display：inline-block;
+        }
+    </style>
+</head>
+<body style="background: rgba(0, 230, 255, .26);">
+    <u style="color: skyblue;"><i><h1>个人主页</h1></i></u>
+    <marquee>YYT的个人主页</marquee>
+    <a class="nw" href="https://dece.czoffice.top" target="_blank">dece工作室</a>、<a class="nw" href="https://czoffice.top" target="_blank">CZ工作室</a>、...成员。<br><br>
+    <h5 style="text-align: center;" onclick="alert('确实啊');">我喜欢编程所以来到了C站</h5>
+    <h5 style="text-align: center;" onclick="alert('对啊！');">下面就是我接触过的编程语言</h5><br><br>
+    <div class="box" id="dv" onclick="alert('呃，嗯……好像还有个scratch和php。。。');">
+        <div class="box">python</div>
+        <div class="box">c++</div>
+        <div class="box">c</div>
+        <div class="box">html</div>
+        <div class="box">javascript</div>
+        <div class="box">css</div>
+    </div><br><br><br>
+    <a href="https://code.xueersi.com/home/project/detail?lang=code&pid=54032890&version=offline&form=python&langType=python" target="_blank"><button class="btn">代表作品</button></a><br><br><br>
+    <div class="box" id="dv2" onclick="alert('点我干嘛？？？服了');">
+        <div class="box">啊</div>
+        <div class="box">啊！！！</div>
+        <div class="box">^_^</div>
+        <div class="box">你好！！</div>
+        <div class="box">欢迎！！</div>
+        <div class="box">Hello!!!</div>
+    </div>
+    <script>
+        alert("欢迎来到我的个人主页");
+        let n = 0;
+        let n2 = 0;
+        let wth = 0;
+        let hgt = 0;
+        function rotate(){
+            n2 = n2 + 1.5;
+            let n3 = n2*1.2;
+            let h = window.innerHeight - 10;
+            let w = window.innerWidth - 10;
+            wth = wth + (Math.floor(Math.random()*3) -w - 5);
+            wth = wth / 6;
+            hgt = hgt + (Math.floor(Math.random()*3) -h - 5);
+            hgt = hgt / 6;
+            document.getElementById("dv").style = "transform: rotateX(" + n2.toString() + "deg) rotateY(" + n.toString() + "deg) rotateZ(" + n2.toString() + "deg);";
+            document.getElementById("dv2").style = "transform: rotateX(" + n3.toString() + "deg) rotateY(" + n.toString() + "deg) rotateZ(" + n3.toString() + "deg) translate(" + wth.toString() + "px, " + hgt.toString() + "px);";
+            n++;
+            
+            setTimeout(rotate, 10);
+        }
+        rotate();
+    </script>
+</body>
 </html>
